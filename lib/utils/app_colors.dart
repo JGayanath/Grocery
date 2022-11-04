@@ -2,5 +2,5 @@
 import 'package:flutter/material.dart';
 
 class AppColors{
-  static final prymeryColor  = Color(0xFF0FA956);
+  static const prymeryColor  = Color(0xFF0FA956);
 }

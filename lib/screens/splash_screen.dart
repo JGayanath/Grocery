@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:grocery/screens/sing_in.dart';
 import 'package:grocery/screens/sing_up.dart';
 import 'package:grocery/utils/app_colors.dart';
 import 'package:grocery/utils/assets_constant.dart';
@@ -23,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed(Duration(seconds: 5), () {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => SingUp()));
+          context, MaterialPageRoute(builder: (context) => Login()));
     });
   }
 
@@ -39,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
               height: 50,
             ),
             FadeInDown(
-                child: Custom_Text(text: "Shop Your Daily \nNecessary" ,color: AppColors.prymeryColor,),
+                child: Custom_Text("Shop Your Daily \nNecessary" ),
             ),
           ],
         ),
