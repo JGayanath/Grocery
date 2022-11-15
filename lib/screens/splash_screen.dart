@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:grocery/screens/sing_in.dart';
-import 'package:grocery/screens/sing_up.dart';
+import 'package:grocery/screens/auth/sing_in.dart';
+import 'package:grocery/screens/auth/sing_up.dart';
 import 'package:grocery/utils/app_colors.dart';
 import 'package:grocery/utils/assets_constant.dart';
+import 'package:grocery/utils/util_funtions.dart';
 
 import '../components/custom_text.dart';
 
@@ -23,8 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
     // TODO: implement initState
     super.initState();
     Future.delayed(Duration(seconds: 5), () {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => Login()));
+     UtilFuntions.navigateTo(context, SingUp());
     });
   }
 
