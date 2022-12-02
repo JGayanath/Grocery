@@ -16,34 +16,36 @@ class _Home_ScreenState extends State<Home_Screen> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Container(
-        width: size.width,
-        height: size.height,
-        padding: EdgeInsets.symmetric(horizontal: 27.0),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 43.0,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Image.asset(AssetsPath.menuicon),
-                Image.asset(AssetsPath.carticon),
-              ],
-            ),
-            SizedBox(
-              height: 38.0,
-            ),
-            Custom_Text(
-              "Vegetables",
-              fontSize: 20.0,
-            ),
-            SizedBox(
-              height: 41.0,
-            ),
-            Product_Grid(),
-          ],
+      body: SafeArea(
+        child: Container(
+          width: size.width,
+          height: size.height,
+          padding: EdgeInsets.symmetric(horizontal: 27.0),
+          child: Column(
+            children: [
+              SizedBox(
+                height: 43.0,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Image.asset(AssetsPath.menuicon),
+                  Image.asset(AssetsPath.carticon),
+                ],
+              ),
+              SizedBox(
+                height: 38.0,
+              ),
+              Custom_Text(
+                "Vegetables",
+                fontSize: 20.0,
+              ),
+              SizedBox(
+                height: 41.0,
+              ),
+              Product_Grid(),
+            ],
+          ),
         ),
       ),
     );
