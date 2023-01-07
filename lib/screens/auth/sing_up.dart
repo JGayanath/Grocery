@@ -1,11 +1,13 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:grocery/components/custom_button.dart';
 import 'package:grocery/components/customtextfield.dart';
+import 'package:grocery/controlers/auth_controler.dart';
+import 'package:grocery/models/singup_provider.dart';
 import 'package:grocery/screens/auth/sing_in.dart';
-import 'package:grocery/screens/home/home_screen.dart';
 import 'package:grocery/utils/assets_constant.dart';
 import 'package:grocery/utils/util_funtions.dart';
-
+import 'package:provider/provider.dart';
 import '../../components/custom_text.dart';
 
 class SingUp extends StatefulWidget {
@@ -16,9 +18,10 @@ class SingUp extends StatefulWidget {
 }
 
 class _SingUpState extends State<SingUp> {
-  final _name = TextEditingController();
-  final _email = TextEditingController();
-  final _password = TextEditingController();
+
+  final  auth_controler = Auth_Controler();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,11 +41,11 @@ class _SingUpState extends State<SingUp> {
                     height: 138,
                   ),
                   const SizedBox(height: 20.0,),
-                  CustomTextfiled(controller: _name, hintText: "Name"),
+                  CustomTextfiled(controller: Provider.of<Singup_Provider>(context).nameController, hintText: "Name"),
                   const SizedBox(height: 8.0,),
-                  CustomTextfiled(controller: _email, hintText: "Email"),
+                  CustomTextfiled(controller: Provider.of<Singup_Provider>(context).emailController, hintText: "Email"),
                   const SizedBox(height: 8.0,),
-                  CustomTextfiled(controller: _password, hintText: "Password"),
+                  CustomTextfiled(controller: Provider.of<Singup_Provider>(context).passwordlController, hintText: "Password",isobscure: true),
                   const SizedBox(height: 16.0,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -55,9 +58,15 @@ class _SingUpState extends State<SingUp> {
                     ],
                   ),
                   const SizedBox(height: 24.0,),
-                  Custom_Button(onTap: (){
-                    UtilFuntions.navigateTo(context, Home_Screen());
-                  }, text: "Sing Up")
+
+                  Consumer<Singup_Provider>(builder: (context , value ,child) {
+                    return Custom_Button(
+                        isLoader: value.isLoading,
+                      onTap: (){
+                      value.stratSingUp(context);
+                    }, text: 'Sing Up', );
+                  }
+                  ),
                 ],
               ),
             ),

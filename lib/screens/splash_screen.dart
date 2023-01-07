@@ -1,14 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:grocery/screens/auth/sing_in.dart';
-import 'package:grocery/screens/auth/sing_up.dart';
-import 'package:grocery/utils/app_colors.dart';
+import 'package:grocery/controlers/auth_controler.dart';
 import 'package:grocery/utils/assets_constant.dart';
-import 'package:grocery/utils/util_funtions.dart';
-
 import '../components/custom_text.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -19,12 +12,15 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  final Auth_Controler auth_controler = Auth_Controler();
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     Future.delayed(Duration(seconds: 5), () {
-     UtilFuntions.navigateTo(context, SingUp());
+      auth_controler.initializeUser(context);
     });
   }
 
@@ -40,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
               height: 50,
             ),
             FadeInDown(
-                child: Custom_Text("Shop Your Daily \nNecessary" ),
+              child: Custom_Text("Shop Your Daily \nNecessary"),
             ),
           ],
         ),
@@ -48,5 +44,3 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
-
-

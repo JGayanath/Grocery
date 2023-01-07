@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:grocery/components/custom_button.dart';
 import 'package:grocery/components/custom_text.dart';
 import 'package:grocery/components/customtextfield.dart';
+import 'package:grocery/models/singin_provider.dart';
 import 'package:grocery/screens/auth/forgot_password.dart';
 import 'package:grocery/screens/home/home_screen.dart';
 import 'package:grocery/utils/app_colors.dart';
 import 'package:grocery/utils/assets_constant.dart';
 import 'package:grocery/utils/util_funtions.dart';
+import 'package:provider/provider.dart';
 
 
 class Login extends StatefulWidget {
@@ -17,8 +19,6 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final _email = TextEditingController();
-  final _password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -47,11 +47,11 @@ class _LoginState extends State<Login> {
             const SizedBox(
               height: 45,
             ),
-            CustomTextfiled(controller: _email, hintText: "Email"),
+            CustomTextfiled(controller: Provider.of<Singin_Provider>(context).emailController, hintText: "Email"),
             const SizedBox(
               height: 8,
             ),
-            CustomTextfiled(controller: _password, hintText: "Password",isobscure: true,),
+            CustomTextfiled(controller: Provider.of<Singin_Provider>(context).passwordlController, hintText: "Password",isobscure: true,),
             const SizedBox(
               height: 16,
             ),
@@ -68,9 +68,14 @@ class _LoginState extends State<Login> {
             const SizedBox(
               height: 29,
             ),
-            Custom_Button(onTap: () {
-              UtilFuntions.navigateTo(context, Home_Screen()); // navigate to home screen
-              },text: "Login"),
+            Consumer<Singin_Provider>(builder: (context , value ,child) {
+              return Custom_Button(
+                isLoader: value.isLoading,
+                onTap: (){
+                  value.stratSingIn(context);
+                }, text: 'Login', );
+            }
+            ),
             const SizedBox(
               height: 23,
             ),

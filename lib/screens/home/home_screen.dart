@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:grocery/components/custom_text.dart';
+import 'package:grocery/models/singin_provider.dart';
+import 'package:grocery/screens/auth/sing_in.dart';
 import 'package:grocery/screens/home/product_grid.dart';
 import 'package:grocery/utils/assets_constant.dart';
+import 'package:grocery/utils/util_funtions.dart';
+import 'package:provider/provider.dart';
 
 class Home_Screen extends StatefulWidget {
   const Home_Screen({Key? key}) : super(key: key);
@@ -30,7 +34,18 @@ class _Home_ScreenState extends State<Home_Screen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Image.asset(AssetsPath.menuicon),
-                  Image.asset(AssetsPath.carticon),
+                  Row(
+                    children: [
+                      Consumer<Singin_Provider>(builder: (context,value,child) {
+                        return IconButton(onPressed: (){
+                          value.signOut();
+                        }, icon: Icon(Icons.logout),);
+                      }),
+
+                      Image.asset(AssetsPath.carticon),
+                    ],
+                  )
+
                 ],
               ),
               SizedBox(

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:grocery/components/custom_button.dart';
 import 'package:grocery/components/custom_text.dart';
 import 'package:grocery/components/customtextfield.dart';
+import 'package:grocery/models/singin_provider.dart';
 import 'package:grocery/utils/assets_constant.dart';
+import 'package:provider/provider.dart';
 
 class Forgot_password extends StatefulWidget {
   const Forgot_password({Key? key}) : super(key: key);
@@ -12,7 +14,6 @@ class Forgot_password extends StatefulWidget {
 }
 
 class _Forgot_passwordState extends State<Forgot_password> {
-  final textEditingController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -47,7 +48,7 @@ class _Forgot_passwordState extends State<Forgot_password> {
               const SizedBox(
                 height: 16,
               ),
-              CustomTextfiled(controller: textEditingController, hintText: "Email2"),
+              CustomTextfiled(controller: Provider.of<Singin_Provider>(context).resetpassworemailController, hintText: "Email2"),
               const SizedBox(
                 height: 4,
               ),
@@ -55,7 +56,14 @@ class _Forgot_passwordState extends State<Forgot_password> {
               const SizedBox(
                 height: 53,
               ),
-              Custom_Button(onTap: (){}, text: "Send"),
+              Consumer<Singin_Provider>(builder: (context , value ,child) {
+                return Custom_Button(
+                  isLoader: value.isLoading,
+                  onTap: (){
+                    value.stratsendPasswordResetEmail(context);
+                  }, text: 'Send', );
+              }
+              ),
             ],
           ),
         ),

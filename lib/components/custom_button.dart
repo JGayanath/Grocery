@@ -7,11 +7,13 @@ class Custom_Button extends StatelessWidget {
   const Custom_Button({
     required this.onTap,
     required this.text,
+    this.isLoader=false,
     Key? key,
   }) : super(key: key);
 
   final Function () onTap;
   final String text;
+  final bool isLoader;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,10 @@ class Custom_Button extends StatelessWidget {
         ),
         child: Align(
             alignment: Alignment.center,
-            child: Custom_Text(text,color: Colors.white,fontSize: 18.0,fontWeight: FontWeight.w500,)),
+            child: isLoader ? CircularProgressIndicator.adaptive(
+              backgroundColor: AppColors.whiteColour,
+            ):
+            Custom_Text(text,color: Colors.white,fontSize: 18.0,fontWeight: FontWeight.w500,)),
       ),
     );
   }

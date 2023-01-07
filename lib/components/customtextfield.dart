@@ -6,7 +6,7 @@ class CustomTextfiled extends StatelessWidget {
     Key? key,
     required this.controller,
     required this.hintText,
-    this.isobscure=true,
+    this.isobscure=false,
   }) : super(key: key);
 
   final TextEditingController controller;

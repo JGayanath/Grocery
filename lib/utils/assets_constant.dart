@@ -6,6 +6,7 @@ class AssetsPath{
   static const imageicongole = "${assetsPath}f.png";
   static const menuicon = "${assetsPath}Menu_icon.png";
   static const carticon = "${assetsPath}shopping-cart.png";
+  static const cartimage = "${assetsPath}cartimage.png";
   static const pumking= "${assetsPath}Pumking.png";
   static const tomato = "${assetsPath}Tomato.png";
   static const  brinjal= "${assetsPath}Brinjal.png";
