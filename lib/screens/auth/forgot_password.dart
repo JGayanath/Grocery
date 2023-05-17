@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery/components/custom_button.dart';
 import 'package:grocery/components/custom_text.dart';
 import 'package:grocery/components/customtextfield.dart';
-import 'package:grocery/models/singin_provider.dart';
+import 'package:grocery/models/model_providers/singin_provider.dart';
 import 'package:grocery/utils/assets_constant.dart';
 import 'package:provider/provider.dart';
 

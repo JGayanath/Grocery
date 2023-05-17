@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery/components/custom_button.dart';
 import 'package:grocery/components/custom_text.dart';
 import 'package:grocery/components/customtextfield.dart';
-import 'package:grocery/models/singin_provider.dart';
+import 'package:grocery/models/model_providers/singin_provider.dart';
 import 'package:grocery/screens/auth/forgot_password.dart';
 import 'package:grocery/screens/home/home_screen.dart';
 import 'package:grocery/utils/app_colors.dart';

@@ -2,8 +2,8 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:grocery/components/custom_button.dart';
 import 'package:grocery/components/customtextfield.dart';
-import 'package:grocery/controlers/auth_controler.dart';
-import 'package:grocery/models/singup_provider.dart';
+import 'package:grocery/controllers/auth_controller.dart';
+import 'package:grocery/models/model_providers/singup_provider.dart';
 import 'package:grocery/screens/auth/sing_in.dart';
 import 'package:grocery/utils/assets_constant.dart';
 import 'package:grocery/utils/util_funtions.dart';
@@ -45,7 +45,7 @@ class _SingUpState extends State<SingUp> {
                   const SizedBox(height: 8.0,),
                   CustomTextfiled(controller: Provider.of<Singup_Provider>(context).emailController, hintText: "Email"),
                   const SizedBox(height: 8.0,),
-                  CustomTextfiled(controller: Provider.of<Singup_Provider>(context).passwordlController, hintText: "Password",isobscure: true),
+                  CustomTextfiled(controller: Provider.of<Singup_Provider>(context).passwordController, hintText: "Password",isobscure: true),
                   const SizedBox(height: 16.0,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,

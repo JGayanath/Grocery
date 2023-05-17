@@ -29,7 +29,7 @@ class Custom_Button extends StatelessWidget {
         child: Align(
             alignment: Alignment.center,
             child: isLoader ? CircularProgressIndicator.adaptive(
-              backgroundColor: AppColors.whiteColour,
+              backgroundColor: AppColors.whiteColor,
             ):
             Custom_Text(text,color: Colors.white,fontSize: 18.0,fontWeight: FontWeight.w500,)),
       ),

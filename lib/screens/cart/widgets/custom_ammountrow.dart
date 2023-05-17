@@ -19,7 +19,7 @@ class Custom_AmmountRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Custom_Text("${text}",color: Colors.black,fontWeight: FontWeight.w400,fontSize: 14,),
-        Custom_Text("Rs.${price}",color: Colors.black,fontWeight: FontWeight.w400,fontSize: 14,),
+        Custom_Text("${price}",color: Colors.black,fontWeight: FontWeight.w400,fontSize: 14,),
       ],
     );
   }

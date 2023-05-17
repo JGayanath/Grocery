@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:grocery/components/custom_button.dart';
 import 'package:grocery/components/custom_text.dart';
+import 'package:grocery/models/model_providers/home/oder_provider.dart';
+import 'package:grocery/screens/main/main_screen.dart';
+import 'package:grocery/utils/util_funtions.dart';
+import 'package:provider/provider.dart';
 
 class Success extends StatefulWidget {
   const Success({Key? key}) : super(key: key);
@@ -50,7 +54,12 @@ class _SuccessState extends State<Success> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const SizedBox(height: 333),
-                  Custom_Button(onTap: ()=>null, text: "See your order"),
+                  Custom_Button(onTap: () {
+                    //--fetch oder
+                    Provider.of<OderProvider>(context,listen: false).startFatchOders(context);
+                    //----navigate to home
+                    UtilFuntions.navigateTo(context, Main_Screen());
+                  }, text: "See your order"),
                 ],
               ),),
           ],

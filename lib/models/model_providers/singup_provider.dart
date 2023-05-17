@@ -4,11 +4,13 @@ import 'dart:math';
 
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:grocery/controlers/auth_controler.dart';
+import 'package:grocery/controllers/auth_controller.dart';
 import 'package:grocery/utils/alert_helper.dart';
 import 'package:logger/logger.dart';
 
 class Singup_Provider extends ChangeNotifier {
+
+  Auth_Controler auth_controler = Auth_Controler();
 
   //-- name controller
   final _name = TextEditingController();
@@ -25,7 +27,7 @@ class Singup_Provider extends ChangeNotifier {
   //-- password controller
   final _password = TextEditingController();
   //--- get password controller
-  TextEditingController get passwordlController => _password;
+  TextEditingController get passwordController => _password;
 
   // loading state
   bool _isLoader = false;
@@ -43,12 +45,12 @@ class Singup_Provider extends ChangeNotifier {
 
   Future<void> stratSingUp (BuildContext context) async {
     try{
-      if (_email.text.isNotEmpty && _password.text.isNotEmpty) {
+      if (_email.text.isNotEmpty && _password.text.isNotEmpty && _name.text.isNotEmpty) {
 
         //-- before singup
         loader=true;
 
-       await Auth_Controler.singUpUser(_email.text, _password.text,context);
+       await auth_controler.singUpUser(_email.text,_password.text,_name.text,context,);
 
         //-- after singup
         loader=false;

@@ -45,5 +45,12 @@
 	<false/>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
+	</---for image picker-->
+	<key>NSPhotoLibraryUsageDescription<key/>
+	<string>this app needs photolibrary permision to pick a photo<string/>
+	<key>NSCameraUsageDescription<key/>
+    	<string>this app needs camera permision to take a photo<string/>
+    	<key>NSMicrophoneUsageDescription<key/>
+        	<string>this app needs Microphone permision to recorde videos<string/>
 </dict>
 </plist>

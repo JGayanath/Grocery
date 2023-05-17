@@ -13,4 +13,11 @@ class AssetsPath{
   static const cauliflower = "${assetsPath}Cauliflower.png";
   static const item1 = "${assetsPath}item1.png";
   static const item2 = "${assetsPath}item2.png";
+  static const dumyProfile = "https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png";
+
+  //--- bottom bar icons
+  static const hart = "${assetsPath}Hart.svg";
+  static const home = "${assetsPath}Home.svg";
+  static const menu = "${assetsPath}Oder.svg";
+  static const profile = "${assetsPath}Profile.svg";
 }

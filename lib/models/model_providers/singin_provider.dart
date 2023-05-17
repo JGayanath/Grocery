@@ -5,7 +5,7 @@ import 'dart:math';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:grocery/controlers/auth_controler.dart';
+import 'package:grocery/controllers/auth_controller.dart';
 import 'package:grocery/utils/alert_helper.dart';
 import 'package:logger/logger.dart';
 

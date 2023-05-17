@@ -22,7 +22,7 @@ class Custom_Text extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      textAlign: TextAlign.center,
+      textAlign: textAlign,
       style: GoogleFonts.poppins(
           fontSize: fontSize,
           fontWeight: fontWeight,
